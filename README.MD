@@ -32,9 +32,9 @@ gcc -c src/erf_cody.cpp src/rationalcubic.cpp src/normaldistribution.cpp src/Let
 ```
 to
 ```
-gcc -c -fPIC src/erf_cody.cpp src/rationalcubic.cpp src/normaldistribution.cpp src/LetsBeRational.cpp src/LetsBeRational_wrap.c -I~/anaconda3/pkgs/python-3.5.2-0/include/python3.5m/
+gcc -c -fPIC src/erf_cody.cpp src/rationalcubic.cpp src/normaldistribution.cpp src/LetsBeRational.cpp src/LetsBeRational_wrap.c -I/path/to/header/file/
 ```
-Note that if you are using [Anaconda](https://www.continuum.io/downloads) with Python 3.5.2-0, this should work. If not, you need to find the directory of your Python 3.5 header file named `Python.h` and replace the above `-I~/anaconda3/pkgs/python-3.5.2-0/include/python3.5m/` part with `-I/path/to/header/file/`. This directory can be found by searching in a directory through various subdirectories with the command `find -iname Python.h`. Once this change is made, create the shared library by running:
+Where you should replace `/path/to/header/file/` with the actual path to the Python 3.5 header file named `Python.h` on your computer. Note that if you are using [Anaconda](https://www.continuum.io/downloads) with Python 3.5.2-0, this path will look something like `/home/myusername/anaconda3/pkgs/python-3.5.2-0/include/python3.5m/`. This directory can be found by searching in a directory through various subdirectories with the command `find /search/directory -iname Python.h` (for example `find / -iname Python.h` will search your entire computer). Once this change is made, create the shared library by running:
 ```
 ./make_linux.sh
 ```
